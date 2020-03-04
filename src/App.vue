@@ -27,6 +27,11 @@
 </template>
 
 <style lang="scss">
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 body {
   background-color: rgb(20, 20, 30);
 }
@@ -46,15 +51,26 @@ a {
 .welcome {
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(https://www.jakpost.travel/wimages/large/8-88366_vinyl-music-background-hd.png);
+
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: visible;
   font-family: "Lucida Sans Unicode";
   color: rgb(235, 64, 52);
 
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   font-size: 26px;
   border-bottom: 1px solid rgb(1, 1, 1, 0.5);
   padding: 1em;
+
+  background: linear-gradient(180deg, #943aab, #00acc1, #d81b60);
+  background-size: 600% 600%;
+
+  -webkit-animation: animatedGradient 11s ease infinite;
+  -moz-animation: animatedGradient 11s ease infinite;
+  animation: animatedGradient 11s ease infinite;
 }
 
 .nav {
@@ -109,5 +125,38 @@ a {
 .nav-item:first-of-type {
   /* border-right: none; */
   border-left: 1px solid rgb(1, 1, 1, 0.5);
+}
+@-webkit-keyframes animatedGradient {
+  0% {
+    background-position: 51% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 51% 0%;
+  }
+}
+@-moz-keyframes animatedGradient {
+  0% {
+    background-position: 51% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 51% 0%;
+  }
+}
+@keyframes animatedGradient {
+  0% {
+    background-position: 51% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 51% 0%;
+  }
 }
 </style>

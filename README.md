@@ -1,4 +1,14 @@
-# nemic-fe
+# Nemic
+
+## A Deezer Client App to go on Music Expeditions.
+
+Nemic aims to explore
+
+
+# Installation
+
+## git clone / download
+Git clone or download the WebApp
 
 ## Project setup
 ```

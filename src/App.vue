@@ -5,7 +5,7 @@
     </div>
     <div class="nav">
       <div class="nav-item explore">
-        <router-link to="/explore">Explore</router-link>
+        <router-link to="/explore">Explore Music</router-link>
       </div>
       <div class="nav-item our-favorites">
         <router-link to="/our-favorites">Our Favorites</router-link>

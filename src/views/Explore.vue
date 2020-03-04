@@ -1,9 +1,9 @@
 <template>
-  <div class="main">
+  <div>
     <div class="searchbar">
       <input type="text" placeholder="Search Deezer..." v-model="query" @keyup.enter="search" />
       <input type="number" v-model="limit" @keyup.enter="search" />
-      <button @click="search">Go!</button>
+      <button @click="search">Explore!</button>
     </div>
     <div class="main">
       <SongCard v-for="song of songs" :key="song.id" id v-bind:song="song" />
@@ -29,8 +29,8 @@
 }
 
 .searchbar {
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
   margin-top: 1em;
 }
 
@@ -55,6 +55,8 @@ input {
 button {
   border: 1px solid rgb(235, 64, 52);
   background-color: rgb(20, 20, 30);
+  outline: none;
+  padding: 0.5rem;
   border-radius: 2em;
   color: rgb(235, 64, 52);
 }
@@ -173,7 +175,7 @@ button {
     display: flex;
     flex-direction: column;
     flex-basis: 22.5%;
-    
+
     margin-bottom: 2em;
     margin-right: 1.25%;
     margin-left: 1.25%;

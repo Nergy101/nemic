@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="">
     <h1>
       <span class="nemic">Nemic</span> enables you to explore Deezer
     </h1>

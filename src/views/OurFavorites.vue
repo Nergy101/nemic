@@ -58,7 +58,7 @@ p {
     margin-left: 2em;
 
     min-height: 5em;
-    max-height: 40em;
+    max-height: 20em;
     height: 10em;
 
     border-radius: 1em;
@@ -83,7 +83,7 @@ p {
     margin-left: 2.5%;
 
     min-height: 5em;
-    max-height: 30em;
+    max-height: 25em;
     height: 15em;
 
     border-radius: 1em;

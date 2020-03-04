@@ -129,15 +129,15 @@ button {
     margin-left: 2em;
 
     min-height: 10em;
-    max-height: 30em;
-    height: 25em;
+    max-height: 20em;
+    height: 10em;
 
     border-radius: 1em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.25);
     transition: height 0.5s ease-in-out;
   }
   .card:hover {
-    height: 30em;
+    height: 15em;
     animation: pulse 2s infinite;
   }
 }
@@ -155,14 +155,14 @@ button {
 
     min-height: 10em;
     max-height: 25em;
-    height: 20em;
+    height: 15em;
 
     border-radius: 1em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.25);
     transition: height 0.5s ease-in-out;
   }
   .card:hover {
-    height: 25em;
+    height: 20em;
     animation: pulse 2s infinite;
   }
 }
@@ -213,7 +213,7 @@ export default {
     search: function() {
       axios
         .get(
-          "https://cors-anywhere.herokuapp.com/http://api.deezer.com/search/track/autocomplete?limit=" +
+          "https://cors-anywhere.herokuapp.com/https://api.deezer.com/search/track/autocomplete?limit=" +
             this.limit +
             "&q=" +
             this.query

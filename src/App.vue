@@ -80,8 +80,6 @@ a {
 
 .router-link-exact-active {
   border-bottom: 1px solid rgb(235, 64, 52);
-  //   border-color: #42b983;
-  //   background-color: inherit;
 }
 
 .nav-item:hover {

@@ -22,7 +22,7 @@
       This is an Open-Source Application.
       <br />The code can be found
       <em>
-        <a href="https://www.github.com">here</a>
+        <a href="https://github.com/Nergy101/nemic">here</a>
       </em>
     </p>
   </div>

@@ -60,7 +60,6 @@ a {
 .nav {
   font-family: "Lucida Sans Unicode";
   display: flex;
-  width: 100%;
   overflow: hidden;
   justify-content: center;
   background-color: rgb(1, 1, 1, 0.2);

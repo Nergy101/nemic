@@ -29,13 +29,14 @@
 }
 
 .searchbar {
-  // display: flex;
-  // justify-content: center;
+  display: flex;
+  justify-content: center;
   margin-top: 1em;
 }
 
 input {
   outline: none;
+  max-width: 33.3333%;
   padding: 0.5rem;
   border-radius: 2rem;
   border: 1px solid rgb(235, 64, 52);

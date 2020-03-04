@@ -65,7 +65,7 @@ a {
   border-bottom: 1px solid rgb(1, 1, 1, 0.5);
   padding: 1em;
 
-  background: linear-gradient(180deg, #943aab, #024d57, #d81b60);
+  background: linear-gradient(180deg, #2cb2ff, #024d57, #d81b60);
   background-size: 600% 600%;
 
   -webkit-animation: animatedGradient 11s ease infinite;

@@ -32,8 +32,8 @@ h1,
 h2,
 p {
   color: white;
+  font-family: "Lucida Console";
 }
-
 em {
   border-bottom: 1px solid rgb(235, 64, 52);
 }

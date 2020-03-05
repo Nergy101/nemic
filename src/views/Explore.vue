@@ -34,6 +34,12 @@
   margin-top: 1em;
 }
 
+p {
+  font-family: "Lucida Console";
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 input {
   outline: none;
   max-width: 33.3333%;

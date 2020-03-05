@@ -19,6 +19,13 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+p {
+  color: white;
+  font-family: "Lucida Console";
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 @keyframes pulse {
   0% {
     transform: scale(0.95);
@@ -35,7 +42,6 @@ export default {
     box-shadow: 0 0 0 0 rgba(78, 251, 174, 0);
   }
 }
-
 
 @keyframes fadein {
   from {

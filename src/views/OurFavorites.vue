@@ -13,6 +13,8 @@ body {
 
 p {
   font-family: "Lucida Console";
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .main {

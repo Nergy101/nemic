@@ -54,7 +54,7 @@ export default {
     // Add Song Preview
     const sound = new Audio();
     sound.src = this.song.preview;
-    sound.volume = 0.1;
+    sound.volume = 0.5;
     sound.addEventListener("ended", function() {
       // replay if ended
       sound.currentTime = 0;

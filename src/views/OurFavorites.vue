@@ -164,6 +164,7 @@ export default {
     return {
       songs: [
         {
+          id: 1,
           title: "Shelter",
           artist: { name: "Porter Robinson, Madeon" },
           album: {
@@ -175,6 +176,7 @@ export default {
             "https://cdns-preview-1.dzcdn.net/stream/c-18d664998c9e464b3d07112880d7d83c-5.mp3"
         },
         {
+          id: 2,
           title: "Heroes Get Remembered, Legends Never Die",
           artist: { name: "Four Year Strong" },
           album: {
@@ -185,6 +187,7 @@ export default {
             "https://cdns-preview-c.dzcdn.net/stream/c-c5d1139caf1e12e78317405411cac1ae-4.mp3"
         },
         {
+          id: 3,
           title: "Carissa",
           artist: { name: "DESERT STAR" },
           album: {
@@ -195,6 +198,7 @@ export default {
             "https://cdns-preview-6.dzcdn.net/stream/c-68d40d0ef6b4f2011eed5bb3efa29ae6-3.mp3"
         },
         {
+          id: 4,
           title: "Knuckles",
           artist: { name: "Moose Blood" },
           album: {
@@ -205,6 +209,7 @@ export default {
             "https://cdns-preview-3.dzcdn.net/stream/c-344ddc8c50f6648215d0dc6c9470ba67-5.mp3"
         },
         {
+          id: 5,
           title: "Baby Blue",
           artist: { name: "Grayscale" },
           album: {
@@ -215,6 +220,7 @@ export default {
             "https://cdns-preview-1.dzcdn.net/stream/c-175ff907e35af96308762cddd4833cb8-4.mp3"
         },
         {
+          id: 6,
           title: "Ark",
           artist: { name: "Rob Gasser, Raider" },
           album: {

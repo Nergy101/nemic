@@ -6,9 +6,26 @@
     :style="{ 'background-image': 'url(' + song.album.cover_xl + ')' }"
   >
     <div ref="header" class="header" :title=" song.title.length >= 22 ? song.title : undefined">
-      <p
-        class="card-title"
-      >{{ song.title.length >= 22 ? song.title.substring(0, 21) + "...": song.title }}</p>
+      <div class="card-title">
+        <p>{{ song.title.length >= 22 ? song.title.substring(0, 21) + "...": song.title }}</p>
+      </div>
+      <div class="heart">
+        <font-awesome-icon
+          v-if="!this.isFavorited"
+          :icon="['far', 'heart']"
+          :style="{'color': 'rgba(255,255,255,0.5)'}"
+          transform="shrink-5 left-4"
+          size="2x"
+          @click="onFavorited()"
+        />
+        <font-awesome-icon
+          v-else
+          :icon="['fas', 'heart']"
+          :style="{'color': 'rgba(255,0,0,0.5)'}"
+          size="2x"
+          @click="onUnFavorited()"
+        />
+      </div>
     </div>
     <div ref="sub" class="sub-header">
       <p class="card-artist">{{song.artist.name}}</p>
@@ -21,7 +38,20 @@ export default {
   props: {
     song: Object
   },
+  data: function() {
+    return {
+      isFavorited: false
+    };
+  },
   mounted: function() {
+    // Get Favorited State
+    const favoritedSongs = JSON.parse(localStorage.getItem("favoritedSongs"));
+    const thisSong = favoritedSongs.filter(song => song.id === this.song.id);
+    if (thisSong.length) {
+      this.isFavorited = true;
+    }
+
+    // Add Song Preview
     const sound = new Audio();
     sound.src = this.song.preview;
     sound.volume = 0.1;
@@ -41,7 +71,32 @@ export default {
       sound.pause();
     });
   },
-  methods: {}
+  methods: {
+    saveFavorited: function(favoritedSongs) {
+      localStorage.favoritedSongs = JSON.stringify(favoritedSongs);
+    },
+    onFavorited: function() {
+      this.isFavorited = !this.isFavorited;
+      let songs = JSON.parse(localStorage.getItem("favoritedSongs"));
+      songs.push(this.song);
+      this.saveFavorited(songs);
+    },
+    onUnFavorited: function() {
+      this.isFavorited = !this.isFavorited;
+      let songs = localStorage.getItem("favoritedSongs");
+
+      if (songs) {
+        songs = JSON.parse(songs);
+        const filteredSongs = songs.filter(song => {
+          return song.id !== this.song.id;
+        });
+
+        this.saveFavorited(filteredSongs);
+      }
+
+      // $emit('unfavorited', this.song) // TODO
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -52,10 +107,13 @@ p {
 /* Headers */
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+
+  margin: 0;
+  padding: 0;
   align-items: center;
 
-  padding-top: 0.2rem;
+  // padding-top: 0.2rem;
   background-color: rgba(0, 0, 0, 0.5);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
@@ -81,7 +139,12 @@ p {
 
 .card-title {
   margin: 0;
+  padding: 0;
   text-align: center;
+}
+
+.heart {
+  margin-left: 1rem;
 }
 
 .card-artist {

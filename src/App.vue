@@ -31,6 +31,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 body {
   background-color: rgb(20, 20, 30);

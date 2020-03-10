@@ -95,11 +95,23 @@ p {
   .card:hover {
     height: 20em;
     animation: pulse 2s infinite;
+    /* We need this for the absolutely-positioned pseudo */
+    position: relative;
+
+    .card::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      bottom: 2em;
+      top: 2em;
+      z-index: -1;
+    }
   }
 }
 
 /* Bigger screens */
-@media screen and (min-device-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .card {
     display: flex;
     flex-direction: column;
@@ -122,6 +134,18 @@ p {
   .card:hover {
     height: 20em;
     animation: pulse 2s infinite;
+    /* We need this for the absolutely-positioned pseudo */
+    position: relative;
+
+    .card::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      bottom: 2em;
+      top: 2em;
+      z-index: -1;
+    }
   }
 }
 

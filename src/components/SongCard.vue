@@ -7,7 +7,7 @@
   >
     <div ref="header" class="header" :title=" song.title.length >= 22 ? song.title : undefined">
       <div class="card-title">
-        <p>{{ song.title.length >= 22 ? song.title.substring(0, 21) + "...": song.title }}</p>
+        <p>{{ song.title.length >= 10 ? song.title.substring(0, 10) + "...": song.title }}</p>
       </div>
       <div class="heart">
         <font-awesome-icon
@@ -55,6 +55,7 @@ export default {
     const sound = new Audio();
     sound.src = this.song.preview;
     sound.volume = 0.5;
+
     sound.addEventListener("ended", function() {
       // replay if ended
       sound.currentTime = 0;
@@ -72,6 +73,18 @@ export default {
     });
   },
   methods: {
+    debounced: function(delay, fn) {
+      let timerId;
+      return function(...args) {
+        if (timerId) {
+          clearTimeout(timerId);
+        }
+        timerId = setTimeout(() => {
+          fn(...args);
+          timerId = null;
+        }, delay);
+      };
+    },
     saveFavorited: function(favoritedSongs) {
       localStorage.favoritedSongs = JSON.stringify(favoritedSongs);
     },
@@ -100,11 +113,23 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+/* Card */
+.main {
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.background {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 p {
   font-family: "Lucida Console";
 }
 
-/* Headers */
 .header {
   display: flex;
   justify-content: center;
@@ -112,8 +137,6 @@ p {
   margin: 0;
   padding: 0;
   align-items: center;
-
-  // padding-top: 0.2rem;
   background-color: rgba(0, 0, 0, 0.5);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
@@ -124,23 +147,11 @@ p {
   padding-bottom: 0.2rem;
 }
 
-.main {
-  margin-top: 1em;
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-/* Card */
-.background {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .card-title {
   margin: 0;
   padding: 0;
   text-align: center;
+  word-wrap: break-word;
 }
 
 .heart {

@@ -11,6 +11,10 @@
   </div>
 </template>
 <style scoped lang="scss">
+body {
+  overflow: hidden;
+}
+
 @keyframes pulse {
   0% {
     transform: scale(0.95);

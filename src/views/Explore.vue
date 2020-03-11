@@ -239,6 +239,7 @@ export default {
     search: function() {
       if (this.query == "") { // dont do call with empty query
         this.songs = [];
+        localStorage.searchResults = [];
         return;
       }
       axios

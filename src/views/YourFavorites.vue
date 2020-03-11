@@ -45,7 +45,7 @@ em {
 @keyframes pulse {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgb(255, 49, 186);
+    box-shadow: 0 0 0 0 rgb(207, 89, 89);;
   }
 
   40% {

@@ -5,16 +5,22 @@
     </div>
     <div class="nav">
       <div class="nav-item explore">
-        <router-link to="/explore">Explore Music</router-link>
-      </div>
-      <div class="nav-item our-favorites">
-        <router-link to="/our-favorites">Our Favorites</router-link>
+        <router-link to="/explore" exact-active-class="exact-active-explore">Explore Music</router-link>
       </div>
       <div class="nav-item your-favorites">
-        <router-link to="/your-favorites">Your Favorites</router-link>
+        <router-link
+          to="/your-favorites"
+          exact-active-class="exact-active-your-favorites"
+        >Your Favorites</router-link>
+      </div>
+      <div class="nav-item our-favorites">
+        <router-link
+          to="/our-favorites"
+          exact-active-class="exact-active-our-favorites"
+        >Our Favorites</router-link>
       </div>
       <div class="nav-item about">
-        <router-link to="/about">About Nemic</router-link>
+        <router-link to="/about" exact-active-class="exact-active-about">About Nemic</router-link>
       </div>
     </div>
     <router-view />
@@ -101,16 +107,32 @@ a {
   background-color: rgb(89, 207, 207);
 }
 
+.exact-active-explore {
+  border-bottom: 1px solid rgb(89, 207, 207);
+}
+
 .your-favorites:hover {
   background-color: rgb(207, 89, 89);
+}
+
+.exact-active-your-favorites {
+  border-bottom: 1px solid rgb(207, 89, 89);
 }
 
 .our-favorites:hover {
   background-color: rgb(89, 207, 134);
 }
 
+.exact-active-our-favorites {
+  border-bottom: 1px solid rgb(89, 207, 134);
+}
+
 .about:hover {
   background-color: rgb(89, 106, 207);
+}
+
+.exact-active-about {
+  border-bottom: 1px solid rgb(89, 106, 207);
 }
 
 .nav-item:last-of-type {

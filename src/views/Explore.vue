@@ -5,6 +5,9 @@
       <input type="number" v-model="limit" @keyup.enter="search" />
       <button @click="search">Explore!</button>
     </div>
+    <div v-if="!songs.length">
+      <p class="quote">"Exploration is really the essence of the human spirit" - Frank Borman</p>
+    </div>
     <div class="main">
       <SongCard
         v-for="song of songs"
@@ -42,6 +45,10 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 1em;
+}
+
+.quote {
+  margin-top: 2em;
 }
 
 p {
@@ -230,6 +237,10 @@ export default {
   },
   methods: {
     search: function() {
+      if (this.query == "") { // dont do call with empty query
+        this.songs = [];
+        return;
+      }
       axios
         .get(
           "https://cors-anywhere.herokuapp.com/https://api.deezer.com/search/track/autocomplete?limit=" +
@@ -243,11 +254,11 @@ export default {
           localStorage.query = this.query;
         });
     },
-    searchAlbum({albumTitle}) {
-      this.query = albumTitle; 
+    searchAlbum({ albumTitle }) {
+      this.query = albumTitle;
       this.limit = 10;
       this.search();
-      }
+    }
   },
   mounted() {
     if (localStorage.searchResults) {

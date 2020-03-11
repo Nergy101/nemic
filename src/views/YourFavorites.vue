@@ -1,6 +1,17 @@
 <template>
   <div class="main">
     <SongCard v-for="song of songs" :key="song.id" id v-bind:song="song" />
+
+    <div v-if="!songs.length">
+      <p>
+        Uh-oh!
+        <br />You don't have any favorites yet.
+        <br />Try adding some when you go
+        <em>
+          <router-link to="/explore">explore!</router-link>
+        </em>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -24,6 +35,11 @@ p {
   font-family: "Lucida Console";
   margin-block-start: 0;
   margin-block-end: 0;
+}
+
+em {
+  color:rgb(235, 64, 52);
+  border-bottom: 1px solid rgb(235, 64, 52);
 }
 
 @keyframes pulse {
@@ -163,7 +179,6 @@ p {
     }
   }
 }
-
 
 /* Bigger screens */
 @media screen and (min-width: 1024px) {

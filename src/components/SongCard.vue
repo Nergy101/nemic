@@ -5,9 +5,9 @@
     class="card background"
     :style="{ 'background-image': 'url(' + song.album.cover_xl + ')' }"
   >
-    <div ref="header" class="header" :title=" song.title.length >= 22 ? song.title : undefined">
+    <div ref="header" class="header" :title="song.title">
       <div class="card-title">
-        <p>{{ song.title.length >= 10 ? song.title.substring(0, 10) + "...": song.title }}</p>
+        <p>{{ song.title.length > 10 ? song.title.substring(0, 10) + "...": song.title }}</p>
       </div>
       <div class="heart">
         <font-awesome-icon
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div ref="sub" class="sub-header">
-      <p class="card-artist">{{song.artist.name}}</p>
+      <p class="card-artist" @click="albumClicked">{{song.artist.name}} / {{song.album.title}}</p>
     </div>
   </div>
 </template>
@@ -73,17 +73,8 @@ export default {
     });
   },
   methods: {
-    debounced: function(delay, fn) {
-      let timerId;
-      return function(...args) {
-        if (timerId) {
-          clearTimeout(timerId);
-        }
-        timerId = setTimeout(() => {
-          fn(...args);
-          timerId = null;
-        }, delay);
-      };
+    albumClicked: function(event) {
+      this.$emit("albumClicked", { albumTitle: event.target.innerText });
     },
     saveFavorited: function(favoritedSongs) {
       localStorage.favoritedSongs = JSON.stringify(favoritedSongs);
@@ -133,6 +124,7 @@ p {
 .header {
   display: flex;
   justify-content: center;
+  cursor: pointer;
 
   margin: 0;
   padding: 0;
@@ -143,6 +135,10 @@ p {
 }
 
 .sub-header {
+  display: flex;
+  justify-content: center;
+
+  cursor: pointer;
   background-color: rgba(0, 0, 0, 0.5);
   padding-bottom: 0.2rem;
 }
@@ -161,6 +157,8 @@ p {
 .card-artist {
   margin: 0;
   text-align: center;
+  overflow: hidden;
+  // white-space: nowrap;
 }
 
 @keyframes fadein {

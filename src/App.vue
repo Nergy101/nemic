@@ -17,11 +17,6 @@
         <router-link to="/about">About Nemic</router-link>
       </div>
     </div>
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>|
-      <router-link to="/our-favorites">Our Favorites</router-link>
-    </div>-->
     <router-view />
   </div>
 </template>

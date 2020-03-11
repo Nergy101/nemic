@@ -6,7 +6,13 @@
       <button @click="search">Explore!</button>
     </div>
     <div class="main">
-      <SongCard v-for="song of songs" :key="song.id" id v-bind:song="song" />
+      <SongCard
+        v-for="song of songs"
+        :key="song.id"
+        id
+        v-bind:song="song"
+        @albumClicked="searchAlbum"
+      />
     </div>
   </div>
 </template>
@@ -236,7 +242,12 @@ export default {
           localStorage.searchResults = JSON.stringify(this.songs);
           localStorage.query = this.query;
         });
-    }
+    },
+    searchAlbum({albumTitle}) {
+      this.query = albumTitle; 
+      this.limit = 10;
+      this.search();
+      }
   },
   mounted() {
     if (localStorage.searchResults) {

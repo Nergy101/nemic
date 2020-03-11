@@ -195,7 +195,8 @@ export default {
           artist: { name: "Porter Robinson, Madeon" },
           album: {
             cover_xl:
-              "https://images.genius.com/024c26eb7e8fc29793590c2598e80fec.1000x563x1.png"
+              "https://images.genius.com/024c26eb7e8fc29793590c2598e80fec.1000x563x1.png",
+              title: "Shelter"
           },
           //  "https://www.partyscene.nl/ckfinder/userfiles/images/porter%20robinson.jpg",
           preview:
@@ -207,7 +208,8 @@ export default {
           artist: { name: "Four Year Strong" },
           album: {
             cover_xl:
-              "https://m.media-amazon.com/images/I/71PwsZzQNfL._SS500_.jpg"
+              "https://m.media-amazon.com/images/I/71PwsZzQNfL._SS500_.jpg",
+              title: "Rise or Die Trying"
           },
           preview:
             "https://cdns-preview-c.dzcdn.net/stream/c-c5d1139caf1e12e78317405411cac1ae-4.mp3"
@@ -218,7 +220,8 @@ export default {
           artist: { name: "DESERT STAR" },
           album: {
             cover_xl:
-              "https://vignette.wikia.nocookie.net/monstercat/images/9/94/DESERT_STAR_-_Carissa.jpg/revision/latest?cb=20190715125141"
+              "https://vignette.wikia.nocookie.net/monstercat/images/9/94/DESERT_STAR_-_Carissa.jpg/revision/latest?cb=20190715125141",
+              title: "Carissa"
           },
           preview:
             "https://cdns-preview-6.dzcdn.net/stream/c-68d40d0ef6b4f2011eed5bb3efa29ae6-3.mp3"
@@ -229,7 +232,8 @@ export default {
           artist: { name: "Moose Blood" },
           album: {
             cover_xl:
-              "https://lastfm-img2.akamaized.net/i/u/ar0/6cf77ad68909c705962b7b6c384fd497"
+              "https://lastfm-img2.akamaized.net/i/u/ar0/6cf77ad68909c705962b7b6c384fd497",
+              title: "Knuckles"
           },
           preview:
             "https://cdns-preview-3.dzcdn.net/stream/c-344ddc8c50f6648215d0dc6c9470ba67-5.mp3"
@@ -240,7 +244,8 @@ export default {
           artist: { name: "Grayscale" },
           album: {
             cover_xl:
-              "https://i.scdn.co/image/ab67616d00001e0207cc7f4b0ead2e9ad77c38e3"
+              "https://i.scdn.co/image/ab67616d00001e0207cc7f4b0ead2e9ad77c38e3",
+              title: "Nella Vita"
           },
           preview:
             "https://cdns-preview-1.dzcdn.net/stream/c-175ff907e35af96308762cddd4833cb8-4.mp3"
@@ -251,7 +256,8 @@ export default {
           artist: { name: "Rob Gasser, Raider" },
           album: {
             cover_xl:
-              "https://i1.sndcdn.com/artworks-000076468282-yxxmou-t500x500.jpg"
+              "https://i1.sndcdn.com/artworks-000076468282-yxxmou-t500x500.jpg",
+              title: "Ark"
           },
           preview:
             "https://cdns-preview-b.dzcdn.net/stream/c-bc55fcf112df4483d61de7f615826e48-2.mp3"

@@ -1,35 +1,48 @@
 <template>
-  <div id="app">
-    <div class="welcome">
-      <h1>Listen at Nemic</h1>
-    </div>
-    <div class="nav">
-      <div class="nav-item explore">
-        <router-link to="/explore" exact-active-class="exact-active-explore">Explore Music</router-link>
-      </div>
-      <div class="nav-item your-favorites">
-        <router-link
-          to="/your-favorites"
-          exact-active-class="exact-active-your-favorites"
-        >Your Favorites</router-link>
-      </div>
-      <div class="nav-item our-favorites">
-        <router-link
-          to="/our-favorites"
-          exact-active-class="exact-active-our-favorites"
-        >Our Favorites</router-link>
-      </div>
-      <div class="nav-item about">
-        <router-link to="/about" exact-active-class="exact-active-about">About Nemic</router-link>
-      </div>
-    </div>
-    <router-view />
+<div id="app">
+  <div class="welcome">
+    <!-- <h1>Listen at Nemic</h1> -->
+    <!-- <img src="@/assets/Logo_Nemic/PNG_300dpi/Logo_Nemic-04.png" style="height: 21.5em;" /> -->
+    <img src="@/assets/Logo_Nemic/Logo_Nemic-40.png" style="height: 21.5em;" />
   </div>
+  <div class="nav">
+    <div class="nav-item explore" @click="scrollToBottom">
+      <router-link to="/explore" exact-active-class="exact-active-explore">Explore Music</router-link>
+    </div>
+    <div class="nav-item your-favorites" @click="scrollToBottom">
+      <router-link
+        to="/your-favorites"
+        exact-active-class="exact-active-your-favorites"
+      >Your Favorites</router-link>
+    </div>
+    <div class="nav-item our-favorites" @click="scrollToBottom">
+      <router-link to="/our-favorites" exact-active-class="exact-active-our-favorites">Our Favorites</router-link>
+    </div>
+    <div class="nav-item about" @click="scrollToBottom">
+      <router-link to="/about" exact-active-class="exact-active-about">About Nemic</router-link>
+    </div>
+  </div>
+  <router-view />
+</div>
 </template>
+
+<script>
+export default {
+  methods: {
+    scrollToBottom: function() {
+      console.log("scrolling");
+      if (window.scrollY < 614) {
+        window.scrollTo(0, 614); //document.body.scrollHeight
+      }
+    }
+  }
+};
+</script>
 
 <style lang="scss">
 html,
 body {
+  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -67,12 +80,12 @@ a {
   border-bottom: 1px solid rgb(1, 1, 1, 0.5);
   padding: 1em;
 
-  background: linear-gradient(180deg, #2cb2ff, #024d57, #d81b60);
+  background: linear-gradient(180deg, #2cb2ff, #414d9b, #a646ff);
   background-size: 600% 600%;
 
-  -webkit-animation: animatedGradient 11s ease infinite;
-  -moz-animation: animatedGradient 11s ease infinite;
-  animation: animatedGradient 11s ease infinite;
+  -webkit-animation: animatedGradient 8s ease infinite;
+  -moz-animation: animatedGradient 8s ease infinite;
+  animation: animatedGradient 8s ease infinite;
 }
 
 .nav {

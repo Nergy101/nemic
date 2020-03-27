@@ -1,5 +1,6 @@
 <template>
   <div class="">
+      <img src="@/assets/Logo_Nemic/Logo_Nemic-39.png" style="height: 10em; margin-top: 1em;"/>
     <h1>
       <span class="nemic">Nemic</span> enables you to explore Deezer
     </h1>

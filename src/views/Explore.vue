@@ -228,6 +228,14 @@ export default {
   components: {
     SongCard
   },
+    watch: {
+    $route: {
+      immediate: true,
+      handler() {
+        document.title = "Nemic | Explore";
+      }
+    }
+  },
   data: function() {
     return {
       query: "",

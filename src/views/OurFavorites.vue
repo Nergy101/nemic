@@ -182,7 +182,7 @@ export default {
     $route: {
       immediate: true,
       handler() {
-        document.title = "Nemic | Favorites";
+        document.title = "Nemic | Our Favorites";
       }
     }
   },

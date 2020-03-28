@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-      <img src="@/assets/Logo_Nemic/Logo_Nemic-39.png" style="height: 10em; margin-top: 1em;"/>
+  <div class>
+    <img src="@/assets/Logo_Nemic/Logo_Nemic-39.png" style="height: 10em; margin-top: 1em;" />
     <h1>
       <span class="nemic">Nemic</span> enables you to explore Deezer
     </h1>
@@ -47,3 +47,15 @@ em {
   color: rgb(235, 64, 52);
 }
 </style>
+<script>
+export default {
+  watch: {
+    $route: {
+      immediate: true,
+      handler() {
+        document.title = "Nemic | About";
+      }
+    }
+  }
+};
+</script>

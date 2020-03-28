@@ -22,6 +22,14 @@ export default {
   components: {
     SongCard
   },
+    watch: {
+    $route: {
+      immediate: true,
+      handler() {
+        document.title = "Nemic | Your Favorites";
+      }
+    }
+  },
   data: function() {
     return {
       songs: JSON.parse(localStorage.getItem("favoritedSongs"))

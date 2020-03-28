@@ -1,29 +1,30 @@
 <template>
-<div id="app">
-  <div class="welcome">
-    <!-- <h1>Listen at Nemic</h1> -->
-    <!-- <img src="@/assets/Logo_Nemic/PNG_300dpi/Logo_Nemic-04.png" style="height: 21.5em;" /> -->
-    <img src="@/assets/Logo_Nemic/Logo_Nemic-40.png" style="height: 21.5em;" />
+  <div id="app">
+    <div class="welcome">
+      <img class="logo" src="@/assets/Logo_Nemic/Logo_Nemic-40.png" />
+    </div>
+    <div class="nav">
+      <div class="nav-item explore" @click="scrollToBottom">
+        <router-link to="/explore" exact-active-class="exact-active-explore">Explore Music</router-link>
+      </div>
+      <div class="nav-item your-favorites" @click="scrollToBottom">
+        <router-link
+          to="/your-favorites"
+          exact-active-class="exact-active-your-favorites"
+        >Your Favorites</router-link>
+      </div>
+      <div class="nav-item our-favorites" @click="scrollToBottom">
+        <router-link
+          to="/our-favorites"
+          exact-active-class="exact-active-our-favorites"
+        >Our Favorites</router-link>
+      </div>
+      <div class="nav-item about" @click="scrollToBottom">
+        <router-link to="/about" exact-active-class="exact-active-about">About Nemic</router-link>
+      </div>
+    </div>
+    <router-view />
   </div>
-  <div class="nav">
-    <div class="nav-item explore" @click="scrollToBottom">
-      <router-link to="/explore" exact-active-class="exact-active-explore">Explore Music</router-link>
-    </div>
-    <div class="nav-item your-favorites" @click="scrollToBottom">
-      <router-link
-        to="/your-favorites"
-        exact-active-class="exact-active-your-favorites"
-      >Your Favorites</router-link>
-    </div>
-    <div class="nav-item our-favorites" @click="scrollToBottom">
-      <router-link to="/our-favorites" exact-active-class="exact-active-our-favorites">Our Favorites</router-link>
-    </div>
-    <div class="nav-item about" @click="scrollToBottom">
-      <router-link to="/about" exact-active-class="exact-active-about">About Nemic</router-link>
-    </div>
-  </div>
-  <router-view />
-</div>
 </template>
 
 <script>
@@ -40,6 +41,30 @@ export default {
 </script>
 
 <style lang="scss">
+.logo {
+  padding: 1em;
+}
+/* Smaller screens */
+@media only screen and (min-width: 320px) {
+  .logo {
+    height: 10em;
+  }
+}
+
+/* Tablets */
+@media only screen and (min-device-width: 768px) {
+  .logo {
+    height: 21.5em;
+  }
+}
+
+/* Bigger screens */
+@media screen and (min-device-width: 1024px) {
+  .logo {
+    height: 21.5em;
+  }
+}
+
 html,
 body {
   scroll-behavior: smooth;
@@ -78,7 +103,7 @@ a {
   justify-content: center;
   font-size: 26px;
   border-bottom: 1px solid rgb(1, 1, 1, 0.5);
-  padding: 1em;
+  // padding: 1em;
 
   background: linear-gradient(180deg, #2cb2ff, #414d9b, #a646ff);
   background-size: 600% 600%;

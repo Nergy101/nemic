@@ -3,7 +3,7 @@
     <div class="welcome">
       <img class="logo" src="@/assets/Logo_Nemic/Logo_Nemic-40.png" />
     </div>
-    <div class="nav">
+    <div class="nav" id="nav">
       <div class="nav-item explore" @click="scrollToBottom">
         <router-link to="/explore" exact-active-class="exact-active-explore">Explore Music</router-link>
       </div>
@@ -31,9 +31,9 @@
 export default {
   methods: {
     scrollToBottom: function() {
-      console.log("scrolling");
       if (window.scrollY < 614) {
-        window.scrollTo(0, 614); //document.body.scrollHeight
+        var elmnt = document.getElementById("nav");
+        elmnt.scrollIntoView(true);
       }
     }
   }

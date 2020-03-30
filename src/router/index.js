@@ -45,7 +45,7 @@ const routes = [
   },
   {
     path: "/",
-    redirect: { name: 'OurFavorites' }
+    redirect: { name: 'Explore' }
   }
 ];
 

@@ -10,11 +10,11 @@
       <em>
         <a href="https://www.deezer.com/" target="_blank">Deezer</a>
       </em>, listen to the song-previews and save
-      <em>
+      <em @click="scrollToBottom">
         <router-link to="/your-favorites">Your Favorites</router-link>
       </em>.
       <br />While you're at it, take a look at
-      <em>
+      <em @click="scrollToBottom">
         <router-link to="/our-favorites">Our Favorites</router-link>
       </em> too.
     </p>
@@ -54,6 +54,14 @@ export default {
       immediate: true,
       handler() {
         document.title = "Nemic | About";
+      }
+    }
+  },
+  methods: {
+    scrollToBottom: function() {
+      if (window.scrollY < 614) {
+        var elmnt = document.getElementById("nav");
+        elmnt.scrollIntoView(true);
       }
     }
   }

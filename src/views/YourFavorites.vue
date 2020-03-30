@@ -2,12 +2,12 @@
   <div class="main">
     <SongCard v-for="song of songs" :key="song.id" id v-bind:song="song" />
 
-    <div v-if="!songs.length">
+    <div v-if="!songs.length" class="no-songs-found">
       <p>
         Uh-oh!
         <br />You don't have any favorites yet.
         <br />Try adding some when you go
-        <em>
+        <em @click="scrollToBottom">
           <router-link to="/explore">explore!</router-link>
         </em>
       </p>
@@ -22,11 +22,19 @@ export default {
   components: {
     SongCard
   },
-    watch: {
+  watch: {
     $route: {
       immediate: true,
       handler() {
         document.title = "Nemic | Your Favorites";
+      }
+    }
+  },
+  methods: {
+    scrollToBottom: function() {
+      if (window.scrollY < 614) {
+        var elmnt = document.getElementById("nav");
+        elmnt.scrollIntoView(true);
       }
     }
   },
@@ -46,14 +54,14 @@ p {
 }
 
 em {
-  color:rgb(235, 64, 52);
+  color: rgb(235, 64, 52);
   border-bottom: 1px solid rgb(235, 64, 52);
 }
 
 @keyframes pulse {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgb(207, 89, 89);;
+    box-shadow: 0 0 0 0 rgb(207, 89, 89);
   }
 
   40% {
@@ -103,7 +111,8 @@ em {
 }
 
 .no-songs-found {
-  margin-top: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
   font-family: "Lucida Sans Unicode";
   color: rgb(235, 64, 52);
   font-size: 28px;

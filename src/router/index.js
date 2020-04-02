@@ -46,6 +46,10 @@ const routes = [
   {
     path: "/",
     redirect: { name: 'Explore' }
+  },
+  {
+    path: "*",
+    redirect: { name: 'Explore' }
   }
 ];
 

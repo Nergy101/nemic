@@ -1,4 +1,4 @@
 // vue.config.js
 module.exports = {
-    publicPath: '/nemic/'
+    // publicPath: '/nemic/'
 }

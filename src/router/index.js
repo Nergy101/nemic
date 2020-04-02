@@ -58,7 +58,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  base: '/nemic',
+  //base: '/nemic',
   // mode: 'history',
   routes
 });

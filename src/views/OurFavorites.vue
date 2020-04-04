@@ -7,9 +7,6 @@
   </div>
 </template>
 <style scoped lang="scss">
-body {
-  background-color: rgb(20, 20, 30);
-}
 
 p {
   font-family: "Lucida Console";
@@ -18,7 +15,8 @@ p {
 }
 
 .main {
-  margin-top: 1em;
+  margin-top: 2em;
+  margin-bottom: 10vh;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -27,7 +25,7 @@ p {
 .no-songs-found {
   margin-top: 2em;
   font-family: "Lucida Sans Unicode";
-  color: rgb(235, 64, 52);
+  color: var(--nemic-color);
   font-size: 28px;
 }
 

@@ -1,10 +1,10 @@
 <template>
-  <div class>
+  <div class="about">
     <img src="@/assets/Logo_Nemic/Logo_Nemic-39.png" style="height: 10em; margin-top: 1em;" />
     <h1>
       <span class="nemic">Nemic</span> enables you to explore Deezer
     </h1>
-    <hr />
+    <!-- <hr /> -->
     <p>
       Search
       <em>
@@ -18,7 +18,7 @@
         <router-link to="/our-favorites">Our Favorites</router-link>
       </em> too.
     </p>
-    <hr />
+    <!-- <hr /> -->
     <p>
       This is an Open-Source Application.
       <br />The code can be found
@@ -36,15 +36,20 @@ p {
   font-family: "Lucida Console";
 }
 em {
-  border-bottom: 1px solid rgb(235, 64, 52);
+  border-bottom: 1px solid var(--nemic-color);
 }
 
 .nemic {
-  color: rgb(235, 64, 52);
+  color: var(--nemic-color);
 }
 
 .router-link-exact-active {
-  color: rgb(235, 64, 52);
+  color: var(--nemic-color);
+}
+
+.about {
+  background-color: inherit;
+  margin-bottom: 80vh;
 }
 </style>
 <script>
@@ -59,10 +64,8 @@ export default {
   },
   methods: {
     scrollToBottom: function() {
-      if (window.scrollY < 614) {
-        var elmnt = document.getElementById("nav");
-        elmnt.scrollIntoView(true);
-      }
+      var elmnt = document.getElementById("nav");
+      elmnt.scrollIntoView(true);
     }
   }
 };

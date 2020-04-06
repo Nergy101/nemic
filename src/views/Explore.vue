@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-explore">
     <div class="searchbar">
       <input
         type="text"
@@ -13,8 +13,8 @@
       </div>
       <button @click="search">Explore!</button>
     </div>
-    <div v-if="!songs.length">
-      <p class="quote">"Exploration is really the essence of the human spirit" - Frank Borman</p>
+    <div v-if="!songs.length" class="quote">
+      <p>"Exploration is really the essence of the human spirit" - Frank Borman</p>
     </div>
     <div class="main">
       <SongCard
@@ -28,8 +28,23 @@
   </div>
 </template>
 <style scoped lang="scss">
-body {
-  overflow: hidden;
+.searchbar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2em;
+}
+
+.quote {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 80vh;
+}
+
+.main-explore {
+  // margin-bottom: 50vh;
 }
 
 @keyframes pulse {
@@ -49,16 +64,6 @@ body {
   }
 }
 
-.searchbar {
-  display: flex;
-  justify-content: center;
-  margin-top: 1em;
-}
-
-.quote {
-  margin-top: 2em;
-}
-
 p {
   font-family: "Lucida Console";
   margin-block-start: 0;
@@ -70,12 +75,12 @@ input {
   max-width: 33.3333%;
   padding: 0.5rem;
   border-radius: 2rem;
-  border: 1px solid rgb(235, 64, 52);
+  border: 1px solid var(--nemic-color);
   background-color: rgb(20, 20, 30);
-  color: rgb(235, 64, 52);
+  color: var(--nemic-color);
   text-align: center;
   &::placeholder {
-    color: rgb(235, 64, 52);
+    color: var(--nemic-color);
   }
   &[type="number"] {
     margin-left: 1em;
@@ -85,12 +90,12 @@ input {
 }
 
 button {
-  border: 1px solid rgb(235, 64, 52);
+  border: 1px solid var(--nemic-color);
   background-color: rgb(20, 20, 30);
   outline: none;
   padding: 0.5rem;
   border-radius: 2em;
-  color: rgb(235, 64, 52);
+  color: var(--nemic-color);
 }
 
 @keyframes fadein {
@@ -108,6 +113,8 @@ button {
   flex-wrap: wrap;
   margin-top: 1em;
 }
+
+
 /* Headers */
 .header {
   display: flex;
@@ -130,7 +137,7 @@ button {
 .no-songs-found {
   margin-top: 2em;
   font-family: "Lucida Sans Unicode";
-  color: rgb(235, 64, 52);
+  color: var(--nemic-color);
   font-size: 28px;
 }
 
@@ -202,11 +209,12 @@ button {
 }
 
 /* Bigger screens */
-@media screen and (min-device-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .card {
     display: flex;
     flex-direction: column;
     flex-basis: 22.5%;
+    
 
     margin-bottom: 2em;
     margin-right: 1.25%;
@@ -225,6 +233,18 @@ button {
   .card:hover {
     height: 20em;
     animation: pulse 2s infinite;
+    /* We need this for the absolutely-positioned pseudo */
+    position: relative;
+
+    .card::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      bottom: 2em;
+      top: 2em;
+      z-index: -1;
+    }
   }
 
   // Tooltip

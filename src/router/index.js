@@ -46,10 +46,20 @@ const routes = [
   {
     path: "/",
     redirect: { name: 'Explore' }
-  }
+  },
+  {
+    path: "*",
+    redirect: { name: 'Explore' }
+  },
+  {
+  path: "/index.html",
+  redirect: { name: 'Explore' }
+}
 ];
 
 const router = new VueRouter({
+  //base: '/nemic',
+  // mode: 'history',
   routes
 });
 

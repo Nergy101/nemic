@@ -32,10 +32,9 @@ export default {
   },
   methods: {
     scrollToBottom: function() {
-      if (window.scrollY < 614) {
         var elmnt = document.getElementById("nav");
         elmnt.scrollIntoView(true);
-      }
+      
     }
   },
   data: function() {
@@ -47,15 +46,17 @@ export default {
 </script>
 <style scoped lang="scss">
 p {
-  color: white;
+  // color: white;
   font-family: "Lucida Console";
   margin-block-start: 0;
   margin-block-end: 0;
+  color: #2c3e50;
+  font-size: 1em;
 }
 
 em {
-  color: rgb(235, 64, 52);
-  border-bottom: 1px solid rgb(235, 64, 52);
+  color: var(--nemic-color);
+  border-bottom: 1px solid var(--nemic-color);
 }
 
 @keyframes pulse {
@@ -88,7 +89,8 @@ em {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  margin-top: 1em;
+  margin-top: 2em;
+  margin-bottom: 80vh;
 }
 
 /* Headers */
@@ -111,10 +113,9 @@ em {
 }
 
 .no-songs-found {
-  margin-top: 1em;
   margin-bottom: 1em;
   font-family: "Lucida Sans Unicode";
-  color: rgb(235, 64, 52);
+  color: var(--nemic-color);
   font-size: 28px;
 }
 
@@ -202,15 +203,15 @@ em {
   .card {
     display: flex;
     flex-direction: column;
-    flex-basis: 45%;
+    flex-basis: 32.01%;
 
     margin-bottom: 2em;
-    margin-right: 2.5%;
-    margin-left: 2.5%;
+    margin-right: 0.66%;
+    margin-left: 0.66%;
 
     min-height: 5em;
-    max-height: 30em;
-    height: 25em;
+    max-height: 25em;
+    height: 15em;
 
     border-radius: 1em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.25);

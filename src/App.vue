@@ -31,16 +31,19 @@
 export default {
   methods: {
     scrollToBottom: function() {
-      if (window.scrollY < 614) {
-        var elmnt = document.getElementById("nav");
-        elmnt.scrollIntoView(true);
-      }
+      var elmnt = document.getElementById("nav");
+      elmnt.scrollIntoView(true);
     }
   }
 };
 </script>
 
 <style lang="scss">
+
+:root {
+  --nemic-color: #a646ff; //rgb(89, 106, 207);//rgb(235, 64, 52);
+}
+
 .logo {
   padding: 1em;
 }
@@ -54,14 +57,14 @@ export default {
 /* Tablets */
 @media only screen and (min-device-width: 768px) {
   .logo {
-    height: 21.5em;
+    height: 10em;
   }
 }
 
 /* Bigger screens */
 @media screen and (min-device-width: 1024px) {
   .logo {
-    height: 21.5em;
+    height: 10em;
   }
 }
 
@@ -72,6 +75,11 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   background-color: rgb(20, 20, 30);
 }
@@ -97,7 +105,7 @@ a {
   width: 100%;
   overflow: visible;
   font-family: "Lucida Sans Unicode";
-  color: rgb(235, 64, 52);
+  color: var(--nemic-color);
 
   display: flex;
   justify-content: center;
@@ -105,7 +113,7 @@ a {
   border-bottom: 1px solid rgb(1, 1, 1, 0.5);
   // padding: 1em;
 
-  background: linear-gradient(180deg, #2cb2ff, #414d9b, #a646ff);
+  background: linear-gradient(180deg, #2cb2ff, #414d9b, #a646ff);  
   background-size: 600% 600%;
 
   -webkit-animation: animatedGradient 8s ease infinite;
@@ -134,7 +142,7 @@ a {
 }
 
 .router-link-exact-active {
-  border-bottom: 1px solid rgb(235, 64, 52);
+  border-bottom: 1px solid var(--nemic-color);
 }
 
 .nav-item:hover {

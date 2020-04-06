@@ -5,27 +5,30 @@
     class="card background"
     :style="{ 'background-image': 'url(' + song.album.cover_xl + ')' }"
   >
-    <div ref="header" class="header" :title="song.title">
-      <div class="card-title">
-        <p>{{ song.title.length > 10 ? song.title.substring(0, 10) + "...": song.title }}</p>
+    <div class="tooltip">
+      <div ref="header" class="header">
+        <div class="card-title">
+          <p>{{ song.title.length > 10 ? song.title.substring(0, 10) + "...": song.title }}</p>
+        </div>
+        <div class="heart">
+          <font-awesome-icon
+            v-if="!this.isFavorited"
+            :icon="['far', 'heart']"
+            :style="{'color': 'rgba(255,255,255,0.5)'}"
+            transform="shrink-5 left-4"
+            size="2x"
+            @click="onFavorited()"
+          />
+          <font-awesome-icon
+            v-else
+            :icon="['fas', 'heart']"
+            :style="{'color': 'rgba(255,0,0,0.5)'}"
+            size="2x"
+            @click="onUnFavorited()"
+          />
+        </div>
       </div>
-      <div class="heart">
-        <font-awesome-icon
-          v-if="!this.isFavorited"
-          :icon="['far', 'heart']"
-          :style="{'color': 'rgba(255,255,255,0.5)'}"
-          transform="shrink-5 left-4"
-          size="2x"
-          @click="onFavorited()"
-        />
-        <font-awesome-icon
-          v-else
-          :icon="['fas', 'heart']"
-          :style="{'color': 'rgba(255,0,0,0.5)'}"
-          size="2x"
-          @click="onUnFavorited()"
-        />
-      </div>
+      <span class="tooltiptext">{{ song.title }}</span>
     </div>
     <div ref="sub" class="sub-header">
       <p class="card-artist" @click="albumClicked">{{song.artist.name}} / {{song.album.title}}</p>
@@ -187,5 +190,54 @@ p {
   font-size: 0.7rem;
   padding: 0.2rem;
   border: none;
+}
+
+// Tooltip
+.tooltip {
+  position: relative;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 0.5rem 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+
+  width: 120px;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+  opacity: 1;
 }
 </style>

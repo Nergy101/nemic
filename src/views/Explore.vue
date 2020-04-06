@@ -47,6 +47,23 @@
   // margin-bottom: 50vh;
 }
 
+@keyframes input-pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 var(--nemic-color);
+  }
+
+  40% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0.5rem rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(78, 251, 174, 0);
+  }
+}
+
 @keyframes pulse {
   0% {
     transform: scale(0.95);
@@ -79,6 +96,12 @@ input {
   background-color: rgb(20, 20, 30);
   color: var(--nemic-color);
   text-align: center;
+  &:focus {
+    animation: input-pulse 2s infinite;
+  }
+  &:hover {
+    animation: input-pulse 2s infinite;
+  }
   &::placeholder {
     color: var(--nemic-color);
   }
@@ -98,6 +121,10 @@ button {
   color: var(--nemic-color);
 }
 
+button:hover {
+  animation: input-pulse 2s infinite;
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
@@ -113,7 +140,6 @@ button {
   flex-wrap: wrap;
   margin-top: 1em;
 }
-
 
 /* Headers */
 .header {
@@ -205,6 +231,15 @@ button {
   .card:hover {
     height: 20em;
     animation: pulse 2s infinite;
+    .card::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      bottom: 2em;
+      top: 2em;
+      z-index: -1;
+    }
   }
 }
 
@@ -214,7 +249,6 @@ button {
     display: flex;
     flex-direction: column;
     flex-basis: 22.5%;
-    
 
     margin-bottom: 2em;
     margin-right: 1.25%;
@@ -246,55 +280,55 @@ button {
       z-index: -1;
     }
   }
+}
 
-  // Tooltip
-  .tooltip {
-    position: relative;
-  }
+// Tooltip
+.tooltip {
+  position: relative;
+}
 
-  /* Tooltip text */
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding: 0.5rem 0;
-    border-radius: 6px;
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 0.5rem 0;
+  border-radius: 1em;
 
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
 
-    width: 120px;
-    top: 100%;
-    left: 50%;
-    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
-  }
+  width: 120px;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
 
-  .tooltip .tooltiptext::after {
-    content: " ";
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent black transparent;
-  }
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
 
-  /* Show the tooltip text when you mouse over the tooltip container */
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-  }
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
 
-  .tooltip .tooltiptext {
-    opacity: 0;
-    transition: opacity 1s;
-  }
+.tooltip .tooltiptext {
+  opacity: 0;
+  transition: opacity 1s;
+}
 
-  .tooltip:hover .tooltiptext {
-    opacity: 1;
-  }
+.tooltip:hover .tooltiptext {
+  opacity: 1;
 }
 </style>
 <script>

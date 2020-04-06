@@ -195,6 +195,8 @@ p {
 // Tooltip
 .tooltip {
   position: relative;
+  background-color: inherit;
+  border-radius: inherit;
 }
 
 /* Tooltip text */

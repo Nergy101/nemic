@@ -177,7 +177,7 @@ em {
     height: 15em;
 
     border-radius: 1em;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.75), 0 6px 16px 0 rgba(0, 0, 0, 0.25);
     transition: height 0.5s ease-in-out;
   }
   .card:hover {

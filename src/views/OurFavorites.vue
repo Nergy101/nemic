@@ -7,7 +7,6 @@
   </div>
 </template>
 <style scoped lang="scss">
-
 p {
   font-family: "Lucida Console";
   margin-block-start: 0;

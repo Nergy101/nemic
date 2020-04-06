@@ -195,29 +195,36 @@ p {
 // Tooltip
 .tooltip {
   position: relative;
-  background-color: inherit;
   border-radius: inherit;
 }
 
 /* Tooltip text */
 .tooltip .tooltiptext {
-  visibility: hidden;
   background-color: black;
   color: white;
   text-align: center;
   padding: 0.5rem 0;
-  border-radius: 6px;
+  border-radius: 0.5rem;
 
   /* Position the tooltip text - see examples below! */
   position: absolute;
   z-index: 1;
 
+  // tooltip width
   width: 120px;
+  // tooltip at bottom
   top: 100%;
+  // tooltip center
   left: 50%;
-  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+  /* Use half of the width (120/2 = 60), to center the tooltip */
+  margin-left: -60px;
+
+  opacity: 0;
+  -webkit-transition: opacity 1.5s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
 }
 
+// Up-arrow
 .tooltip .tooltiptext::after {
   content: " ";
   position: absolute;
@@ -230,15 +237,6 @@ p {
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-
-.tooltip .tooltiptext {
-  opacity: 0;
-  transition: opacity 1s;
-}
-
 .tooltip:hover .tooltiptext {
   opacity: 1;
 }

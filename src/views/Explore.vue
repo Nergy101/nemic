@@ -50,7 +50,7 @@
 @keyframes input-pulse {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 var(--nemic-color);
+    box-shadow: 0 0 0 0 #59cfcf;
   }
 
   40% {
@@ -92,9 +92,9 @@ input {
   max-width: 33.3333%;
   padding: 0.5rem;
   border-radius: 2rem;
-  border: 1px solid var(--nemic-color);
+  border: 1px solid #59cfcf;
   background-color: rgb(20, 20, 30);
-  color: var(--nemic-color);
+  color: #59cfcf;
   text-align: center;
   &:focus {
     animation: input-pulse 2s infinite;
@@ -103,7 +103,7 @@ input {
     animation: input-pulse 2s infinite;
   }
   &::placeholder {
-    color: var(--nemic-color);
+    color: #59cfcf;
   }
   &[type="number"] {
     margin-left: 1em;
@@ -113,25 +113,16 @@ input {
 }
 
 button {
-  border: 1px solid var(--nemic-color);
+  border: 1px solid #59cfcf;
   background-color: rgb(20, 20, 30);
   outline: none;
   padding: 0.5rem;
   border-radius: 2em;
-  color: var(--nemic-color);
+  color: #59cfcf;
 }
 
 button:hover {
   animation: input-pulse 2s infinite;
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .main {

@@ -113,7 +113,7 @@ a {
   border-bottom: 1px solid rgb(1, 1, 1, 0.5);
   // padding: 1em;
 
-  background: linear-gradient(180deg, #2cb2ff, #414d9b, #a646ff);  
+  background: linear-gradient(180deg, #2cb2ff, #414d9b, var(--nemic-color));
   background-size: 600% 600%;
 
   -webkit-animation: animatedGradient 8s ease infinite;
@@ -174,11 +174,11 @@ a {
 }
 
 .about:hover {
-  background-color: rgb(89, 106, 207);
+  background-color: var(--nemic-color);
 }
 
 .exact-active-about {
-  border-bottom: 1px solid rgb(89, 106, 207);
+  border-bottom: 1px solid var(--nemic-color);
 }
 
 .nav-item:last-of-type {

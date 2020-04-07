@@ -43,11 +43,14 @@ export default {
   },
   data: function() {
     return {
-      isFavorited: false
+      isFavorited: false,
+      playing: false,
+      sound: new Audio()
     };
   },
   mounted: function() {
     // Get Favorited State
+    this.$el.style.webkitAnimationPlayState = "paused";
     const favoritedSongs = JSON.parse(localStorage.getItem("favoritedSongs"));
     const thisSong = favoritedSongs.filter(song => song.id === this.song.id);
     if (thisSong.length) {
@@ -55,24 +58,36 @@ export default {
     }
 
     // Add Song Preview
-    const sound = new Audio();
-    sound.src = this.song.preview;
-    sound.volume = 0.5;
+    this.sound.src = this.song.preview;
+    this.sound.volume = 0.5;
 
-    sound.addEventListener("ended", function() {
+    this.sound.addEventListener("ended", function() {
       // replay if ended
-      sound.currentTime = 0;
-      sound.play();
+      this.sound.currentTime = 0;
+      this.sound.play();
     });
 
-    this.$el.addEventListener("mouseover", () => {
+    this.$el.addEventListener("click", () => {
       // play song preview on card-click
-      sound.play();
+      if (this.playing) {
+        this.sound.pause();
+        this.playing = false;
+        this.$el.style.webkitAnimationPlayState = "paused";
+        console.log("pausing onclick");
+      } else {
+        this.sound.play();
+        this.playing = true;
+        this.$el.style.webkitAnimationPlayState = "running";
+        console.log("playing onclick");
+      }
     });
 
     this.$el.addEventListener("mouseout", () => {
       // pause song on mouse-out
-      sound.pause();
+      this.sound.pause();
+      this.playing = false;
+      this.$el.style.webkitAnimationPlayState = "paused";
+      console.log("pausing on leave");
     });
   },
   methods: {

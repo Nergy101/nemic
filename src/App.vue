@@ -4,22 +4,22 @@
       <img class="logo" src="@/assets/Logo_Nemic/Logo_Nemic-40.png" />
     </div>
     <div class="nav" id="nav">
-      <div class="nav-item explore" @click="scrollToBottom">
+      <div class="nav-item explore" @click="navigateTo('explore')">
         <router-link to="/explore" exact-active-class="exact-active-explore">Explore Music</router-link>
       </div>
-      <div class="nav-item your-favorites" @click="scrollToBottom">
+      <div class="nav-item your-favorites" @click="navigateTo('your-favorites')">
         <router-link
           to="/your-favorites"
           exact-active-class="exact-active-your-favorites"
         >Your Favorites</router-link>
       </div>
-      <div class="nav-item our-favorites" @click="scrollToBottom">
+      <div class="nav-item our-favorites" @click="navigateTo('our-favorites')">
         <router-link
           to="/our-favorites"
           exact-active-class="exact-active-our-favorites"
         >Our Favorites</router-link>
       </div>
-      <div class="nav-item about" @click="scrollToBottom">
+      <div class="nav-item about" @click="navigateTo('about')">
         <router-link to="/about" exact-active-class="exact-active-about">About Nemic</router-link>
       </div>
     </div>
@@ -30,7 +30,8 @@
 <script>
 export default {
   methods: {
-    scrollToBottom: function() {
+    navigateTo: function(location) {
+      this.$router.push(location);
       var elmnt = document.getElementById("nav");
       elmnt.scrollIntoView(true);
     }
@@ -39,7 +40,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 :root {
   --nemic-color: #a646ff; //rgb(89, 106, 207);//rgb(235, 64, 52);
 }

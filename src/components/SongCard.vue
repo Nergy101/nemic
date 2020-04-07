@@ -179,15 +179,6 @@ p {
   // white-space: nowrap;
 }
 
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .card-title {
   word-wrap: break-word;
   text-align: center;

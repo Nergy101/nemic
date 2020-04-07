@@ -35,16 +35,6 @@ p {
   background-size: cover;
 }
 
-/* Card */
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 /* Smaller screens */
 @media only screen and (min-device-width: 320px) {
   .card {
@@ -125,7 +115,6 @@ p {
     border-radius: 1em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.25);
     transition: height 1s ease-in-out;
-    animation: fadein 1.5s;
   }
 
   .card:hover {

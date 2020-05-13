@@ -14,7 +14,9 @@
       <button @click="search">Explore!</button>
     </div>
     <div v-if="!songs.length" class="quote">
-      <p>"Exploration is really the essence of the human spirit" - Frank Borman</p>
+      <p>
+        "Exploration is really the essence of the human spirit" - Frank Borman
+      </p>
     </div>
     <div class="main">
       <SongCard
@@ -41,10 +43,6 @@
   width: 100%;
   margin-top: 2em;
   margin-bottom: 80vh;
-}
-
-.main-explore {
-  // margin-bottom: 50vh;
 }
 
 @keyframes input-pulse {
@@ -168,21 +166,7 @@ button:hover {
 /* Smaller screens */
 @media only screen and (min-device-width: 320px) {
   .card {
-    display: flex;
-    flex-direction: column;
     flex-basis: 100%;
-
-    margin-bottom: 2em;
-    margin-right: 2em;
-    margin-left: 2em;
-
-    min-height: 10em;
-    max-height: 20em;
-    height: 10em;
-
-    border-radius: 1em;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.25);
-    transition: height 0.5s ease-in-out;
   }
   .card:hover {
     height: 15em;
@@ -193,63 +177,28 @@ button:hover {
 /* Tablets */
 @media only screen and (min-device-width: 768px) {
   .card {
-    display: flex;
-    flex-direction: column;
     flex-basis: 45%;
-
-    margin-bottom: 2em;
     margin-right: 2.5%;
     margin-left: 2.5%;
-
-    min-height: 10em;
-    max-height: 25em;
-    height: 15em;
-
-    border-radius: 1em;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.25);
-    transition: height 0.5s ease-in-out;
   }
   .card:hover {
     height: 20em;
     animation: pulse 2s infinite;
-    .card::after {
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 100%;
-      bottom: 2em;
-      top: 2em;
-      z-index: -1;
-    }
   }
 }
 
 /* Bigger screens */
 @media screen and (min-width: 1024px) {
   .card {
-    display: flex;
-    flex-direction: column;
     flex-basis: 22.5%;
-
-    margin-bottom: 2em;
-    margin-right: 1.25%;
-    margin-left: 1.25%;
-
-    min-height: 5em;
-    max-height: 25em;
-    height: 15em;
-
-    border-radius: 1em;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.25);
-    transition: height 1s ease-in-out;
+    margin-right: 1.15%;
+    margin-left: 1.15%;
+    border: 1px solid #59cfcf;
   }
-
   .card:hover {
     height: 20em;
     animation: pulse 2s infinite;
-    /* We need this for the absolutely-positioned pseudo */
     position: relative;
-
     .card::after {
       position: absolute;
       content: "";

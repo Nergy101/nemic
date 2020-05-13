@@ -5,8 +5,8 @@
     <div v-if="!songs.length" class="no-songs-found">
       <p>
         Uh-oh!
-        <br />You don't have any favorites yet.
-        <br />Try adding some when you go
+        <br />You don't have any favorites yet. <br />Try adding some when you
+        go
         <em @click="scrollToBottom">
           <router-link to="/explore">explore!</router-link>
         </em>
@@ -32,9 +32,8 @@ export default {
   },
   methods: {
     scrollToBottom: function() {
-        var elmnt = document.getElementById("nav");
-        elmnt.scrollIntoView(true);
-      
+      var elmnt = document.getElementById("nav");
+      elmnt.scrollIntoView(true);
     }
   },
   data: function() {
@@ -67,7 +66,7 @@ em {
 
   40% {
     transform: scale(1);
-    box-shadow: 0 0 0 1rem rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0.5rem rgba(0, 0, 0, 0);
   }
 
   100% {
@@ -120,21 +119,7 @@ em {
 /* Smaller screens */
 @media only screen and (min-device-width: 320px) {
   .card {
-    display: flex;
-    flex-direction: column;
     flex-basis: 100%;
-
-    margin-bottom: 2em;
-    margin-right: 2em;
-    margin-left: 2em;
-
-    min-height: 10em;
-    max-height: 20em;
-    height: 10em;
-
-    border-radius: 1em;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.25);
-    transition: height 0.5s ease-in-out;
   }
   .card:hover {
     height: 15em;
@@ -145,66 +130,29 @@ em {
 /* Tablets */
 @media only screen and (min-device-width: 768px) {
   .card {
-    display: flex;
-    flex-direction: column;
     flex-basis: 45%;
-
-    margin-bottom: 2em;
     margin-right: 2.5%;
     margin-left: 2.5%;
-
-    min-height: 10em;
-    max-height: 25em;
-    height: 15em;
-
-    border-radius: 1em;
-    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.75), 0 6px 16px 0 rgba(0, 0, 0, 0.25);
-    transition: height 0.5s ease-in-out;
   }
   .card:hover {
     height: 20em;
     animation: pulse 2s infinite;
-    /* We need this for the absolutely-positioned pseudo */
-    position: relative;
-
-    .card::after {
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 100%;
-      bottom: 2em;
-      top: 2em;
-      z-index: -1;
-    }
   }
 }
 
 /* Bigger screens */
 @media screen and (min-width: 1024px) {
   .card {
-    display: flex;
-    flex-direction: column;
     flex-basis: 32.01%;
-
-    margin-bottom: 2em;
-    margin-right: 0.66%;
-    margin-left: 0.66%;
-
-    min-height: 5em;
-    max-height: 25em;
-    height: 15em;
-
-    border-radius: 1em;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.25);
-    transition: height 1s ease-in-out;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+    border: 1px solid rgba(207, 89, 89, 1);
   }
 
   .card:hover {
     height: 30em;
     animation: pulse 2s infinite;
-    /* We need this for the absolutely-positioned pseudo */
     position: relative;
-
     .card::after {
       position: absolute;
       content: "";

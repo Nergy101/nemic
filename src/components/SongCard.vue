@@ -8,21 +8,20 @@
     <div class="tooltip">
       <div ref="header" class="header">
         <div class="card-title">
-          <p>{{ song.title.length > 10 ? song.title.substring(0, 10) + "...": song.title }}</p>
+          <p>{{ song.title }}</p>
         </div>
         <div class="heart">
           <font-awesome-icon
             v-if="!this.isFavorited"
             :icon="['far', 'heart']"
-            :style="{'color': 'rgba(255,255,255,0.5)'}"
-            transform="shrink-5 left-4"
+            :style="{ color: 'rgba(255,255,255,0.5)' }"
             size="2x"
             @click="onFavorited()"
           />
           <font-awesome-icon
             v-else
             :icon="['fas', 'heart']"
-            :style="{'color': 'rgba(255,0,0,0.5)'}"
+            :style="{ color: 'rgba(255,0,0,0.5)' }"
             size="2x"
             @click="onUnFavorited()"
           />
@@ -31,7 +30,9 @@
       <span class="tooltiptext">{{ song.title }}</span>
     </div>
     <div ref="sub" class="sub-header">
-      <p class="card-artist" @click="albumClicked">{{song.artist.name}} / {{song.album.title}}</p>
+      <p class="card-artist" @click="albumClicked">
+        {{ song.artist.name }} / {{ song.album.title }}
+      </p>
     </div>
   </div>
 </template>
@@ -73,12 +74,10 @@ export default {
         this.sound.pause();
         this.playing = false;
         this.$el.style.webkitAnimationPlayState = "paused";
-        console.log("pausing onclick");
       } else {
         this.sound.play();
         this.playing = true;
         this.$el.style.webkitAnimationPlayState = "running";
-        console.log("playing onclick");
       }
     });
 
@@ -87,7 +86,6 @@ export default {
       this.sound.pause();
       this.playing = false;
       this.$el.style.webkitAnimationPlayState = "paused";
-      console.log("pausing on leave");
     });
   },
   methods: {
@@ -143,33 +141,24 @@ p {
   display: flex;
   justify-content: center;
   cursor: pointer;
-
-  margin: 0;
-  padding: 0;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
 
 .sub-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding-bottom: 0.2rem;
-}
-
-.card-title {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  word-wrap: break-word;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  padding-bottom: 0.5rem;
 }
 
 .heart {
   margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .card-artist {
@@ -184,7 +173,7 @@ p {
   text-align: center;
   font-weight: bold;
   color: white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-size: 1.2rem;
   margin: 0.2rem;
   border: none;
@@ -192,7 +181,7 @@ p {
 
 .card-artist {
   color: white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-size: 0.7rem;
   padding: 0.2rem;
   border: none;
@@ -206,28 +195,22 @@ p {
 
 /* Tooltip text */
 .tooltip .tooltiptext {
+  opacity: 0;
   background-color: black;
   color: white;
   text-align: center;
   padding: 0.5rem 0;
-  border-radius: 0.5rem;
+  border-radius: 1em;
 
   /* Position the tooltip text - see examples below! */
   position: absolute;
   z-index: 1;
 
-  // tooltip width
-  width: 120px;
-  // tooltip at bottom
   top: 100%;
-  // tooltip center
   left: 50%;
-  /* Use half of the width (120/2 = 60), to center the tooltip */
-  margin-left: -60px;
-
-  opacity: 0;
-  -webkit-transition: opacity 1.5s ease-in-out;
-  transition: opacity 1.5s ease-in-out;
+  width: 120px;
+  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+  transition: opacity 1s ease-in-out;
 }
 
 // Up-arrow
@@ -245,5 +228,96 @@ p {
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
   opacity: 1;
+}
+
+/* Smaller screens */
+@media only screen and (min-device-width: 320px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 2em;
+    margin-right: 2em;
+    margin-left: 2em;
+
+    min-height: 5em;
+    max-height: 20em;
+    height: 10em;
+
+    border-radius: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.25);
+    transition: height 0.5s ease-in-out;
+  }
+  .card:hover {
+    height: 15em;
+    animation: pulse 2s infinite;
+  }
+}
+
+/* Tablets */
+@media only screen and (min-device-width: 768px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 2em;
+    min-height: 5em;
+    max-height: 25em;
+    height: 15em;
+    border-radius: 1em;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.25);
+    transition: height 0.5s ease-in-out;
+  }
+  .card:hover {
+    height: 20em;
+    animation: pulse 2s infinite;
+    /* We need this for the absolutely-positioned pseudo */
+    position: relative;
+
+    .card::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      bottom: 2em;
+      top: 2em;
+      z-index: -1;
+    }
+  }
+}
+
+/* Bigger screens */
+@media screen and (min-width: 1024px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 2em;
+    min-height: 5em;
+    max-height: 25em;
+    height: 15em;
+    border-radius: 1em;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.25);
+    transition: height 1s ease-in-out;
+  }
+
+  .card:hover {
+    height: 20em;
+    animation: pulse 2s infinite;
+    /* We need this for the absolutely-positioned pseudo */
+    position: relative;
+
+    .card::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      bottom: 2em;
+      top: 2em;
+      z-index: -1;
+    }
+  }
 }
 </style>

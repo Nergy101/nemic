@@ -11,12 +11,12 @@
       </div>
       <div
         class="nav-item your-favorites"
-        @click="navigateTo('your-favorites')"
+        @click="navigateTo('your-playlists')"
       >
         <router-link
-          to="/your-favorites"
+          to="/your-playlists"
           exact-active-class="exact-active-your-favorites"
-          >Your Favorites</router-link
+          >Your Playlists</router-link
         >
       </div>
       <div class="nav-item our-favorites" @click="navigateTo('our-favorites')">
@@ -31,20 +31,46 @@
           >About Nemic</router-link
         >
       </div>
+      <div class="nav-item login">
+        <span id="show-modal" @click="showModal = true">
+          <font-awesome-icon :icon="['fa', 'user']"></font-awesome-icon>
+        </span>
+        <!-- use the modal component, pass in the prop -->
+        <LogIn v-if="showModal" @close="showModal = false">
+          <!-- <h3 slot="header">custom header</h3> -->
+        </LogIn>
+      </div>
     </div>
     <router-view />
   </div>
 </template>
 
 <script>
+import LogIn from "./components/LogIn.vue";
+
 export default {
+  components: {
+    LogIn,
+  },
+  data: function() {
+    return {
+      showModal: false,
+    };
+  },
+  created: function(){
+    var loggedIn = false;
+    console.log("Logged in:", loggedIn)
+
+    // if (store.user.loggedIn) {login-icon.color = green}
+    // else {login-con.color = white/red?}
+  },
   methods: {
     navigateTo: function(location) {
       this.$router.push(location);
       var elmnt = document.getElementById("nav");
       elmnt.scrollIntoView(true);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -188,6 +214,10 @@ a {
 
 .exact-active-about {
   border-bottom: 1px solid var(--nemic-color);
+}
+
+.login:hover {
+  color: var(--nemic-color);
 }
 
 .nav-item:last-of-type {

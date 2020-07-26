@@ -1,6 +1,25 @@
 <template>
   <div class="main">
-    <SongCard v-for="song of songs" :key="song.id" id v-bind:song="song" />
+    <div class="song-list">
+      <SongCard v-for="song of songs" :key="song.id" id v-bind:song="song" />
+    </div>
+    <div class="sidebar">
+      <span class="playlist-title"> Playlists</span>
+      <ul class="playlist-list">
+        <li class="playlist-entry selected" id="favo" @click="selectPlaylist">
+          Favorites
+        </li>
+        <li class="playlist-entry" id="b" @click="selectPlaylist">
+          abracadabra
+        </li>
+        <li class="playlist-entry" id="c" @click="selectPlaylist">
+          🤘 metal favorites 🤘
+        </li>
+        <li class="playlist-entry" id="d" @click="selectPlaylist">
+          toepasselijk geruis voor nachtelijke escapades
+        </li>
+      </ul>
+    </div>
 
     <div v-if="!songs.length" class="no-songs-found">
       <p>
@@ -18,29 +37,43 @@
 <script>
 import SongCard from "@/components/SongCard";
 export default {
-  name: "YourFavorites",
+  name: "YourPlayLists",
   components: {
-    SongCard
+    SongCard,
   },
   watch: {
     $route: {
       immediate: true,
       handler() {
-        document.title = "Nemic | Your Favorites";
-      }
-    }
+        document.title = "Nemic | Your Playlists";
+      },
+    },
   },
   methods: {
     scrollToBottom: function() {
       var elmnt = document.getElementById("nav");
       elmnt.scrollIntoView(true);
-    }
+    },
+    selectPlaylist: function(ev) {
+      try {
+        this.selectedPlaylist.classList.remove("selected");
+      } catch {
+        document
+          .getElementsByClassName("selected")[0]
+          .classList.remove("selected");
+      } finally {
+        this.selectedPlaylist = ev.target;
+        ev.target.classList.add("selected");
+      }
+    },
   },
+  created: function() {console.log(JSON.stringify(this.songs[0]))},
   data: function() {
     return {
-      songs: JSON.parse(localStorage.getItem("favoritedSongs"))
+      songs: JSON.parse(localStorage.getItem("favoritedSongs")),
+      selectedPlaylist: {},
     };
-  }
+  },
 };
 </script>
 <style scoped lang="scss">
@@ -80,7 +113,60 @@ em {
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin-top: 2em;
-  margin-bottom: 80vh;
+  margin-bottom: 40em;
+}
+
+.song-list {
+  display: flex;
+  flex-basis: 75%;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding-left: 1em;
+  border-left: solid rgb(207, 89, 89) 1px;
+}
+
+.playlist-title {
+  font-family: "Lucida Console";
+  color: rgb(207, 89, 89);
+  padding-bottom: 1em;
+}
+
+.playlist-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.playlist-entry {
+  font-family: "Lucida Console";
+  margin: 0;
+  padding: 0.2em;
+  border-bottom: solid 1px rgb(207, 89, 89);
+  margin-top: 1em;
+  cursor: pointer;
+  border-radius: 1em;
+  background-color: inherit;
+  &:hover {
+    border-top: 1px solid rgb(207, 89, 89);
+  }
+}
+
+.selected {
+  color: rgb(20, 20, 30);
+  background-color: rgb(207, 89, 89);
+  transition: color 0.3s ease-in;
+  transition: background-color 0.3s linear;
+  -webkit-transition: background-color 0.3s linear;
+  -ms-transition: background-color 0.3s linear;
+  transition: background-color 0.3s linear;
 }
 
 /* Headers */

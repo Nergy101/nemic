@@ -15,7 +15,7 @@ p {
 
 .main {
   margin-top: 2em;
-  margin-bottom: 30vh;
+  margin-bottom: 40em;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
